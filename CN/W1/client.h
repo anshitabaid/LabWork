@@ -4,9 +4,10 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdlib.h>
+#include <arpa/inet.h>
 
 #define PORTNO 10200
-#define IP "172.16.58.225"
+#define IP "10.70.3.93"
 /*
 void createServerSocket (struct sockaddr_in * seraddr, int * sockfd)
 {
@@ -20,13 +21,14 @@ void createServerSocket (struct sockaddr_in * seraddr, int * sockfd)
 }
 */
 
-void createClientSocket (struct sockaddr_in* cliaddr, int* sockfd)
+struct sockaddr_in createClientSocket (int* sockfd)
 {
 	*sockfd = socket (AF_INET, SOCK_STREAM, 0);
-	struct sockaddr_in ca = *cliaddr;
+	struct sockaddr_in ca;
 	ca.sin_family = AF_INET;
 	ca.sin_addr.s_addr = inet_addr (IP);
 	ca.sin_port=htons(PORTNO);
+	return ca;
 }
 /*
 
