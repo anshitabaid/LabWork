@@ -1,7 +1,7 @@
 echo "Enter  a b and c"
-read a
-read b
-read c
+read a b c
+#read b
+#read c
 d=$(((b*b)- 4*a*c))
 if [ $d == 0 ] 
 then d1=0
