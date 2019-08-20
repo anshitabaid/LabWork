@@ -31,8 +31,10 @@ case $d1 in
 	echo "roots imaginary"
 	d=$((-1 * d))
 	d=$(echo "sqrt ($d)" | bc)
-	r1=`expr -1 \*  $b / \( 2 \* $a \)`
-	r2=`expr $d / \( 2 \* $a \)`
+	r1=$((-b/(2*a)))
+	r2=$((d/(2*a)))
+	#r1=`expr -1 \*  $b / \( 2 \* $a \)`
+	#r2=`expr $d / \( 2 \* $a \)`
 	;;
 *)
 	echo "nothing"
