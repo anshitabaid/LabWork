@@ -8,7 +8,7 @@
 #include <stdlib.h>
 
 #define PORTNO 10200
-#define IP "172.16.58.225"
+#define IP "127.0.0.1"
 
 struct sockaddr_in createServerSocket (int * sockfd)
 {
