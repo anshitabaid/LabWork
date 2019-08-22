@@ -1,0 +1,86 @@
+a. 18790
+b. 53
+c. 64 bytes
+d. 64-8=56 bytes
+e. Client to server
+f. DNS
+g. Yes
+
+B
+Query: 
+Source: 10.70.3.97
+Destination: 1.186.15.106
+
+Response
+Source: 1.186.15.106
+Destination: 10.70.3.97
+
+Source in 1 is destination in 2
+Vice versa
+
+C
+Query:
+Source: 18790
+Dest: 53
+
+Response:
+Source: 53
+Dest: 18790
+
+Reln : vice versa
+Well known port no: 53 used by for DNS
+
+D
+98 bytes
+Payload: 56 bytes
+
+2B
+
+1. 
+
+SYN:        
+Source: 10.70.3.97 16122
+Destination: 216.58.199.174 80
+
+SYN/ACK: 
+S: 216.58.199.174 80
+D: 10.70.3.97 16122
+
+ACK:
+Source: 10.70.3.97 16122
+Destination: 216.58.199.174 80
+
+2. Flags set
+SYN
+SYN/ACK
+ACK
+
+3.
+Seq No 0   0    1
+Ack No 0   1    1
+
+4. Window Size
+29200   60192   229
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

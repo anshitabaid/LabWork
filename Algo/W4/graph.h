@@ -84,14 +84,14 @@ void makeList(Graph g,int v)
 			if (vertex!=0)
 			{
 				insertToList (((g->array)+i), vertex);
-				//insertToMatrix (mat, i, vertex-1);
+				insertToMatrix (mat, i, vertex-1);
 			}
 
 		}while (vertex!=0);
 	}
 }
-/*
-void makeListAndMatrix (Graph g, int ** mat, int v)
+
+void makeMatrix (int ** mat, int v)
 {
 	int i, j,vertex;
 
@@ -103,7 +103,6 @@ void makeListAndMatrix (Graph g, int ** mat, int v)
 			scanf ("%d", &vertex);
 			if (vertex!=0)
 			{
-				insertToList (((g->array)+i), vertex);
 				insertToMatrix (mat, i, vertex-1);
 			}
 
@@ -111,7 +110,7 @@ void makeListAndMatrix (Graph g, int ** mat, int v)
 	}
 }
 
-*/
+
 void printAdjLists (Graph g)
 {
 	int i;
@@ -176,3 +175,28 @@ void printAdjMat (int ** mat, int v)
 
 }
 
+void dfs_util (int * mat,  int visited[], v, int ind)
+{
+	int i;
+	for (i=0; i<v; i++)
+	{
+		if (i!= ind && *(mat+i)==1 && visited [*(mat+i)]==0)
+			printf ("%d\t", i);
+	}
+
+void dfs (int ** mat, int v)
+{
+	int visited[v];
+	for (i=0; i<v; i++)
+		visited[i]=0;
+	for (i=0; i<v; i++)
+	{
+		if (visited[i]==0)
+		{
+			printf ("%d\t", i+1);
+			dfs_util(*(mat+i), visited, v, i);
+			printf ("\n");
+		}
+		
+	}
+}
