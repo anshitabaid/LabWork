@@ -1,12 +1,4 @@
 #include "common.h"
-#include<string.h>
-#include<fcntl.h>
-#include<stdlib.h>
-#include<arpa/inet.h>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#define PORTNO 10200
 
 int createClientSocket(int sockfd, struct sockaddr_in address){
 	int len, result;
@@ -25,19 +17,17 @@ int createClientSocket(int sockfd, struct sockaddr_in address){
 	return sockfd;
 }
 
-void performClientTask(int sockfd){
-	int n = 1;
-	char ch[]="GET /home.html HTTP/1.1\nAccept-Language: en-US\nHost: developer.mozilla.org\nAccept: text/html,application/xhtml+xml\nAccept-Encoding: gzip, deflate, br\n";
-	char hello[256];
-
-	ch[strlen(ch)] = '\0';
-	write(sockfd, ch, strlen(ch));
-	printf("Server sent: \n");
-	
-		n = read(sockfd, hello, sizeof(hello));
-		puts(hello);
-	
-	exit(0);
+void clientTask(int sockfd){
+	char buf[256], buf2[256];
+	printf("Do you want to see the time?\n");
+	while(1){
+		sprintf(buf, "%s", "What is the time?");
+		getchar();
+		write(sockfd, buf, sizeof(buf));
+		read(sockfd, buf, sizeof(buf));
+		read(sockfd, buf2, sizeof(buf2));
+		printf("The time is: %s \nProcess ID: %s", buf, buf2);
+	}
 }
 
 void terminateSocket(int sockfd){
@@ -49,6 +39,7 @@ int main(){
 	struct sockaddr_in address;
 
 	sockfd = createClientSocket(sockfd, address);
-	performClientTask(sockfd);
+	clientTask(sockfd);
 	terminateSocket(sockfd);
 }
+
