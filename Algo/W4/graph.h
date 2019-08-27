@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define arrsize 4
+
+int q[100];
+int f=0, r=0;
+
 
 typedef struct adjListNode
 {
@@ -42,18 +47,15 @@ Graph createGraph (int v)
 	return g;
 }
 
-int ** initMatrix (int v)
+void initMatrix (int mat [][arrsize], int v)
 {
 	int i, j;
-	int ** mat = (int**)calloc (v, sizeof (int *));
 	for (i=0; i<v; i++)
 	{
-		*(mat+i) = (int*)calloc (v, sizeof (int));
 		for (j=0; j<v; j++)
-			*(*(mat+i)+j)=0;
-		*(*(mat+i)+i)=1; //self connection
+			mat [i][j]=0;
+		mat[i][i]=1; //self connection
 	}
-	return mat;
 
 }
 
@@ -65,9 +67,9 @@ void insertToList(AdjList a, int d)
 	temp->next = newAdjListNode (d);
 }
 
-void insertToMatrix (int ** mat, int i, int j)
+void insertToMatrix (int  mat [][arrsize], int i, int j)
 {
-	*(*(mat+i)+j) = 1;
+	mat[i][j]=1;
 }
 //make list
 
@@ -84,14 +86,13 @@ void makeList(Graph g,int v)
 			if (vertex!=0)
 			{
 				insertToList (((g->array)+i), vertex);
-				insertToMatrix (mat, i, vertex-1);
 			}
 
 		}while (vertex!=0);
 	}
 }
 
-void makeMatrix (int ** mat, int v)
+void makeMatrix (int mat [][arrsize], int v)
 {
 	int i, j,vertex;
 
@@ -155,7 +156,7 @@ int ** makeMatrix (int v)
 
 }
 */
-void printAdjMat (int ** mat, int v)
+void printAdjMat (int mat[][arrsize], int v)
 {
 	int i, j;
 	printf ("\t");
@@ -167,7 +168,7 @@ void printAdjMat (int ** mat, int v)
 		printf ("%d\t", i+1);
 		for (j=0; j<v; j++)
 		{
-			int d = *(*(mat+i)+j);
+			int d = mat[i][j];
 			printf ("%d\t", d);
 		}
 		printf ("\n");
@@ -175,28 +176,79 @@ void printAdjMat (int ** mat, int v)
 
 }
 
-void dfs_util (int * mat,  int visited[], v, int ind)
+void dfs_util (int m[][arrsize], int v, int i, int visited[])
 {
-	int i;
-	for (i=0; i<v; i++)
+	printf ("%d\t" ,  i+1);
+	visited [i]=1;
+	int j;
+	for (j=0; j<v; j++)
 	{
-		if (i!= ind && *(mat+i)==1 && visited [*(mat+i)]==0)
-			printf ("%d\t", i);
+		if ((!visited[j]) && m[i][j]==1 && i!=j)
+		{
+			dfs_util (m, v, j, visited);
+		}
 	}
 
-void dfs (int ** mat, int v)
+}
+
+void dfs (int mat[][arrsize], int v)
 {
 	int visited[v];
+	int i;
+	for (i=0; i<v; i++)
+		visited[i]=0;
+
+	for (i=0; i<v; i++)
+	{
+		if (!visited[i])
+		{			dfs_util (mat,v,i,visited);
+			printf ("\n");
+		}
+	}
+}
+
+void enqueue (int i)
+{
+	q[r++]=i;
+}
+
+int dequeue ()
+{
+	if (f==r)
+		return -1;
+	return q[f++];
+}
+
+void bfs_util (int mat[][arrsize], int v, int visited[])
+{
+	int next = dequeue ();
+	if (next==-1)
+		return;
+	if (visited[next]==0)
+		printf ("%d\n", next+1);
+	visited[next]=1;
+	int j;
+	//push all connected vertices to queue
+	for (j=0; j<v;j++)
+		if (!visited[j]&&mat[next][j]==1 && next!=j)
+			enqueue (j);
+	
+	bfs_util (mat, v, visited);
+}
+
+void bfs (int mat[][arrsize], int v)
+{
+	int visited[v];
+	int i;
 	for (i=0; i<v; i++)
 		visited[i]=0;
 	for (i=0; i<v; i++)
 	{
-		if (visited[i]==0)
+		if (!visited[i])
 		{
-			printf ("%d\t", i+1);
-			dfs_util(*(mat+i), visited, v, i);
+			enqueue (i);
+			bfs_util(mat,v,visited);
 			printf ("\n");
 		}
-		
 	}
 }
