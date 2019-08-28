@@ -1,0 +1,2 @@
+grep -l "OS" * > myfile.txt
+head -n 2 `cat myfile.txt
