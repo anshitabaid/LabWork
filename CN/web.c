@@ -34,17 +34,17 @@ struct sockaddr_in createServerSocket (int * sockfd)
 
 struct sockaddr_in createClientSocket (int* sockfd)
 {
-    int portno =        443;
-    char *host =        "google.com";
-     struct hostent *server;
-     server = gethostbyname(host);
-    if (server == NULL) perror("ERROR, no such host");
-    *sockfd = socket (AF_INET, SOCK_STREAM, O);
+    //int portno =        443;
+    //char *host =        "google.com";
+     //struct hostent *server;
+     //server = gethostbyname(host);
+    //if (server == NULL) perror("ERROR, no such host");
+    *sockfd = socket (AF_INET, SOCK_STREAM, 0);
     struct sockaddr_in ca;
     ca.sin_family = AF_INET;
-    //ca.sin_addr.s_addr = inet_addr ("216.58.196.164");
+    ca.sin_addr.s_addr = inet_addr ("216.58.196.164");
 
-    memcpy(&ca.sin_addr.s_addr,server->h_addr,server->h_length);
+    //memcpy(&ca.sin_addr.s_addr,server->h_addr,server->h_length);
     ca.sin_port=htons(80);
     int result = connect (*sockfd, (struct sockaddr * )&ca, sizeof (ca));
     if (result==-1)
@@ -59,7 +59,7 @@ struct sockaddr_in createClientSocket (int* sockfd)
 void clientworker(int sockfd)
 {
     char buf [500];
-    char ch[]="GET / HTTP/1.1\r\n\r\n";
+    char ch[]="GET / HTTP/1.1\r\nAccept-Language: en-US\r\nHost: developer.mozilla.org\r\nAccept: text/html\r\n\r\n";
     int n  =write (sockfd, ch, sizeof (ch));
     if (n<0)
     {
