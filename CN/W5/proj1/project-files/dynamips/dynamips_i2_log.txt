@@ -1,0 +1,20 @@
+Aug 29 16:27:21.045 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Aug 29 16:27:21.045 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 40891.
+Aug 29 16:27:21.055 HYPERVISOR: exec_cmd: hypervisor version 
+Aug 29 16:27:21.056 HYPERVISOR: exec_cmd: hypervisor working_dir /home/170905404/Desktop/Labs/CN/W5/proj1/project-files/dynamips 
+Aug 29 16:27:21.056 GENERAL: working_dir=/home/170905404/Desktop/Labs/CN/W5/proj1/project-files/dynamips
+Aug 29 16:27:21.056 HYPERVISOR: exec_cmd: ethsw create Ethernetswitch-1 
+Aug 29 16:27:50.367 HYPERVISOR: exec_cmd: nio create_udp udp-74a254d8-0731-4c2a-9e27-d0f002bb1c72 10001 127.0.0.1 10000 
+Aug 29 16:27:50.367 HYPERVISOR: exec_cmd: ethsw add_nio Ethernetswitch-1 udp-74a254d8-0731-4c2a-9e27-d0f002bb1c72 
+Aug 29 16:27:50.380 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernetswitch-1 udp-74a254d8-0731-4c2a-9e27-d0f002bb1c72 1 
+Aug 29 16:27:54.797 HYPERVISOR: exec_cmd: nio create_udp udp-64d6bb2f-de57-4479-8bc0-5283076962e5 10003 127.0.0.1 10002 
+Aug 29 16:27:54.797 HYPERVISOR: exec_cmd: ethsw add_nio Ethernetswitch-1 udp-64d6bb2f-de57-4479-8bc0-5283076962e5 
+Aug 29 16:27:54.815 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernetswitch-1 udp-64d6bb2f-de57-4479-8bc0-5283076962e5 1 
+Aug 29 16:28:02.819 HYPERVISOR: exec_cmd: nio create_udp udp-0cd13028-e010-462f-942f-b906f96b1ba5 10004 127.0.0.1 10005 
+Aug 29 16:28:02.820 HYPERVISOR: exec_cmd: ethsw add_nio Ethernetswitch-1 udp-0cd13028-e010-462f-942f-b906f96b1ba5 
+Aug 29 16:28:02.821 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernetswitch-1 udp-0cd13028-e010-462f-942f-b906f96b1ba5 1 
+Aug 29 16:28:10.892 HYPERVISOR: exec_cmd: nio create_udp udp-7d47cf8f-e96f-41d8-88b6-d13adb6a16b7 10007 127.0.0.1 10006 
+Aug 29 16:28:10.892 HYPERVISOR: exec_cmd: ethsw add_nio Ethernetswitch-1 udp-7d47cf8f-e96f-41d8-88b6-d13adb6a16b7 
+Aug 29 16:28:10.907 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernetswitch-1 udp-7d47cf8f-e96f-41d8-88b6-d13adb6a16b7 1 
+Aug 29 16:34:06.735 HYPERVISOR: exec_cmd: nio bind_filter udp-74a254d8-0731-4c2a-9e27-d0f002bb1c72 2 capture 
+Aug 29 16:34:06.736 HYPERVISOR: exec_cmd: nio setup_filter udp-74a254d8-0731-4c2a-9e27-d0f002bb1c72 2 en10mb /home/170905404/Desktop/Labs/CN/W5/proj1/tmp/captures/PC-1_Ethernet0_to_Ethernetswitch-1_Ethernet0.pcap 

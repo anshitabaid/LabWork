@@ -20,6 +20,7 @@ void * gen_sum (void * param)
 int main ()
 {
 	pthread_t thread;
+	up
 	int n, i, s;
 	printf ("Enter n\t");
 	scanf ("%d", &n);

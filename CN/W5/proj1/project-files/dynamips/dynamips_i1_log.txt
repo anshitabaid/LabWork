@@ -1,0 +1,38 @@
+Aug 29 15:49:09.913 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+Aug 29 15:49:09.913 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 37817.
+Aug 29 15:49:09.920 HYPERVISOR: exec_cmd: hypervisor version 
+Aug 29 15:49:09.921 HYPERVISOR: exec_cmd: hypervisor working_dir /home/170905404/Desktop/Labs/CN/W5/proj1/project-files/dynamips 
+Aug 29 15:49:09.921 GENERAL: working_dir=/home/170905404/Desktop/Labs/CN/W5/proj1/project-files/dynamips
+Aug 29 15:49:09.921 HYPERVISOR: exec_cmd: nio_bridge create Ethernethub-1 
+Aug 29 15:49:36.233 HYPERVISOR: exec_cmd: nio create_udp udp-4f467436-3081-4b99-9ef9-a67bc757677c 10001 127.0.0.1 10000 
+Aug 29 15:49:36.233 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-4f467436-3081-4b99-9ef9-a67bc757677c 
+Aug 29 15:49:44.787 HYPERVISOR: exec_cmd: nio create_udp udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 10003 127.0.0.1 10002 
+Aug 29 15:49:44.787 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 
+Aug 29 15:49:48.644 HYPERVISOR: exec_cmd: nio create_udp udp-6943602d-6d53-478d-9f04-68241f4a1143 10004 127.0.0.1 10005 
+Aug 29 15:49:48.645 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-6943602d-6d53-478d-9f04-68241f4a1143 
+Aug 29 15:49:51.952 HYPERVISOR: exec_cmd: nio create_udp udp-15811abd-cace-44ef-8d6d-44016c9cde57 10006 127.0.0.1 10007 
+Aug 29 15:49:51.952 HYPERVISOR: exec_cmd: nio_bridge add_nio Ethernethub-1 udp-15811abd-cace-44ef-8d6d-44016c9cde57 
+Aug 29 15:52:51.890 HYPERVISOR: exec_cmd: nio bind_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 capture 
+Aug 29 15:52:51.890 HYPERVISOR: exec_cmd: nio setup_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 en10mb /home/170905404/Desktop/Labs/CN/W5/proj1/tmp/captures/PC-1_Ethernet0_to_Ethernethub-1_Ethernet0.pcap 
+Aug 29 15:53:42.891 HYPERVISOR: exec_cmd: nio unbind_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 
+Aug 29 15:53:47.513 HYPERVISOR: exec_cmd: nio bind_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 capture 
+Aug 29 15:53:47.513 HYPERVISOR: exec_cmd: nio setup_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 en10mb /home/170905404/Desktop/Labs/CN/W5/proj1/tmp/captures/PC-1_Ethernet0_to_Ethernethub-1_Ethernet0.pcap 
+Aug 29 16:01:09.354 HYPERVISOR: exec_cmd: nio unbind_filter udp-4f467436-3081-4b99-9ef9-a67bc757677c 2 
+Aug 29 16:07:54.965 HYPERVISOR: exec_cmd: nio bind_filter udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 2 capture 
+Aug 29 16:07:54.965 HYPERVISOR: exec_cmd: nio setup_filter udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 2 en10mb /home/170905404/Desktop/Labs/CN/W5/proj1/tmp/captures/PC-2_Ethernet0_to_Ethernethub-1_Ethernet1.pcap 
+Aug 29 16:09:35.666 HYPERVISOR: exec_cmd: nio unbind_filter udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 2 
+Aug 29 16:21:07.408 HYPERVISOR: exec_cmd: nio bind_filter udp-6943602d-6d53-478d-9f04-68241f4a1143 2 capture 
+Aug 29 16:21:07.408 HYPERVISOR: exec_cmd: nio setup_filter udp-6943602d-6d53-478d-9f04-68241f4a1143 2 en10mb /home/170905404/Desktop/Labs/CN/W5/proj1/tmp/captures/Ethernethub-1_Ethernet2_to_PC-3_Ethernet0.pcap 
+Aug 29 16:27:14.321 HYPERVISOR: exec_cmd: nio_bridge remove_nio Ethernethub-1 udp-4f467436-3081-4b99-9ef9-a67bc757677c 
+Aug 29 16:27:14.324 HYPERVISOR: exec_cmd: nio delete udp-4f467436-3081-4b99-9ef9-a67bc757677c 
+Aug 29 16:27:14.335 HYPERVISOR: exec_cmd: nio_bridge remove_nio Ethernethub-1 udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 
+Aug 29 16:27:14.344 HYPERVISOR: exec_cmd: nio delete udp-0582c060-cb4e-4a0c-8b8b-4e6e868e4ec7 
+Aug 29 16:27:14.352 HYPERVISOR: exec_cmd: nio_bridge remove_nio Ethernethub-1 udp-6943602d-6d53-478d-9f04-68241f4a1143 
+Aug 29 16:27:14.364 HYPERVISOR: exec_cmd: nio unbind_filter udp-6943602d-6d53-478d-9f04-68241f4a1143 2 
+Aug 29 16:27:14.364 HYPERVISOR: exec_cmd: nio delete udp-6943602d-6d53-478d-9f04-68241f4a1143 
+Aug 29 16:27:14.376 HYPERVISOR: exec_cmd: nio_bridge remove_nio Ethernethub-1 udp-15811abd-cace-44ef-8d6d-44016c9cde57 
+Aug 29 16:27:14.384 HYPERVISOR: exec_cmd: nio delete udp-15811abd-cace-44ef-8d6d-44016c9cde57 
+Aug 29 16:27:14.395 HYPERVISOR: exec_cmd: nio_bridge delete Ethernethub-1 
+Aug 29 16:27:14.395 HYPERVISOR: exec_cmd: hypervisor stop 
+Aug 29 16:27:14.768 HYPERVISOR: Stopped.
+Aug 29 16:27:14.768 GENERAL: reset done.
