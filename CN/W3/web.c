@@ -59,7 +59,7 @@ struct sockaddr_in createClientSocket (int* sockfd)
 void clientworker(int sockfd)
 {
     char buf [500];
-    char ch[]="GET / HTTP/1.1\r\nAccept-Language: en-US\r\nHost: developer.mozilla.org\r\nAccept: text/html\r\n\r\n";
+    char ch[]="GET / HTTP/1.1\r\nAccept-Language: en-US\r\nHost: google.com\r\nAccept: text/html\r\n\r\n";
     int n  =write (sockfd, ch, sizeof (ch));
     if (n<0)
     {
