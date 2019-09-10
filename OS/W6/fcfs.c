@@ -21,14 +21,14 @@ void calculate ()
 	for (i=0; i<n; i++)
 	{
 		Pcs curp = *(p+i); //current process to execute
-		printf ("Executing process ID %d\n\n", curp->pid);
+		//printf ("\nExecuting process ID %d\n", curp->pid);
 		twt =currtime- curp->at;
 		currtime+=curp->bt;
 		ttt = currtime - curp->at;
-		curp->tt=twt;
+		curp->tt=ttt;
 		curp->wt=twt;
 
-		printf ("Waiting time\t%d\nTurnaround time%d\n", curp->wt, curp->tt);
+		//printf ("Waiting time\t%d\nTurnaround time\t%d\n", curp->wt, curp->tt);
 		awt+=twt;
 		att+=ttt;
 	}
@@ -42,7 +42,8 @@ int main ()
 
 	calculate ();
 	
-	printf ("Average waiting time\t%0.3f\nAverage turnaround time\t%0.3f\n", awt, att);
+	display ();
+	//printf ("Average waiting time\t%0.3f\nAverage turnaround time\t%0.3f\n", awt, att);
 
 
 }

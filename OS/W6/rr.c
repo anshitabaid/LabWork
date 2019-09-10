@@ -31,7 +31,7 @@ void calculate()
 	i=0;
 	while (1)
 	{
-		while (completed[i])
+		while (completed[i] && i<n)
 			i++;
 		if (i==n)
 			break;
@@ -46,7 +46,7 @@ void calculate()
 			currp->bt-=minm;
 			if (currp->bt==0)
 				completed[j]=1;
-			printf ("%d\n", currp->lf);
+			//printf ("%d\n", currp->lf);
 			currp->wt+=currtime-currp->lf;
 			currp->tt=currtime+minm;
 			currp->ls=currtime;
@@ -55,7 +55,6 @@ void calculate()
 
 		}
 	}
-	printf ("Process\tWaiting Time\tTurnaround Time\n");
 	for (i=0; i<n; i++)
 	{
 		Pcs c=*(p+i);
@@ -64,7 +63,6 @@ void calculate()
 		c->tt-=c->at; 
 		att+=c->tt;
 		awt+=c->wt;
-		printf ("%d\t\t%d\t\t%d\n", c->pid, c->wt, c->tt);
 	}
 	awt/=n;
 	att/=n;
@@ -75,6 +73,7 @@ int main ()
 {
 	input ();
 	calculate ();
+	display ();
 
 
 

@@ -4,7 +4,7 @@
 void calculate ()
 {
 	int curtime = 0;
-	int i, j, minbt, minpid;
+	int i, j, minbt, minpid=0;
 	Pcs curp, tempp;
 	int completed[n]; //completed processes
 	for (i=0; i<n; i++)
@@ -18,13 +18,12 @@ void calculate ()
 	i=0;
 	while(1)
 	{
-		while (completed[i])
+		while (completed[i] && i<n)
 			i++;
 		if (i==n)
 			break;
 		Pcs curp = *(p+i);
 		minbt = INT_MAX;
-		minpid = INT_MAX;
 		for (j=i; j<n; j++)
 		{
 			tempp = *(p+j);
@@ -45,10 +44,11 @@ void calculate ()
 		curp->wt=twt;
 		att+=ttt;
 		awt+=twt;
-		printf ("Waiting time\t%d\nTurnaround time %d\n", curp->wt, curp->tt);
+        //printf ("Waiting time\t%d\nTurnaround time %d\n", curp->wt, curp->tt);
 	}
-	awt/=4;
-	att/=4;
+    printf ("HELLO");
+	awt/=n;
+	att/=n;
 
 }
 
@@ -57,6 +57,7 @@ int main ()
 	input();
 
 	calculate();
-	printf ("Average waiting time\t%0.3f\nAverage turnaround time\t%0.3f\n", awt, att);
+    display ();
+	//printf ("Average waiting time\t%0.3f\nAverage turnaround time\t%0.3f\n", awt, att);
 
 }

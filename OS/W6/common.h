@@ -11,7 +11,7 @@ typedef struct
 	int wt; //waiting time
 	int tt; //turnaround time
 	int ls; //last started for RR
-	int lf; //last finished
+	int lf; //last finished for RR
 } pcs, *Pcs;
 
 Pcs * p;
@@ -28,12 +28,15 @@ void input ()
 	int i;
 	for (i=0; i<n; i++)
 	{
+		//printf ("For process %d\n", i+1);
 		*(p+i)=(Pcs)malloc (sizeof (pcs));
 		Pcs pt = *(p+i);
 		pt->pid=i+1;
+		
 		scanf ("%d", &(pt->at));
 		scanf ("%d", &(pt->bt));
 		scanf ("%d", &(pt->pr));
+		
 		pt->tt=0;
 		pt->wt=0;
 		pt->ls=0;
@@ -46,6 +49,7 @@ void input ()
 		printf ("Priority\t");
 		scanf ("%d", &(pt->pr));
 		*/
+		
 	}
 }
 
@@ -57,14 +61,12 @@ void display ()
 	{
 		Pcs c=*(p+i);
 		//adjust for arrival times
-		c->wt-=c->at;
-		c->tt-=c->at; 
-		att+=c->tt;
-		awt+=c->wt;
+		//att+=c->tt;
+		//awt+=c->wt;
 		printf ("%d\t\t%d\t\t%d\n", c->pid, c->wt, c->tt);
 	}
-	awt/=n;
-	att/=n;
+	//awt/=n;
+	//att/=n;
 	printf ("Average waiting time\t%0.3f\nAverage turnaround time\t%0.3f\n", awt, att);
 
 
