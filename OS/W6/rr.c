@@ -31,7 +31,7 @@ void calculate()
 	i=0;
 	while (1)
 	{
-		while (completed[i])
+		while (completed[i] && i<n)
 			i++;
 		if (i==n)
 			break;
