@@ -16,9 +16,9 @@ int main ()
     int pipe_fd;
     int res, n, count=0;
     int open_mode = O_RDONLY;
-    printf ("Process %d opening FIFO O_RDONLY\n", getpid());
+    //printf ("Process %d opening FIFO O_RDONLY\n", getpid());
     pipe_fd = open (FIFO_NAME, open_mode);
-    printf ("Process %d result %d\n", getpid(), pipe_fd);
+    //printf ("Process %d result %d\n", getpid(), pipe_fd);
     if (pipe_fd!=-1)
     {
         while (count<COUNT) 

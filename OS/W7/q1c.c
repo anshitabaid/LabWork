@@ -31,7 +31,6 @@ int palin (int num)
 
 int main ()
 {
-    int running=1;
     int msgid;
     struct my_msg_st some_data;
     long int msg_to_receive = 0;

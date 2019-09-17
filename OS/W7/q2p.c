@@ -26,7 +26,7 @@ int main ()
             exit (1);
         }
     } 
-    printf ("Process %d opening FIFO O_WRONLY\n", getpid());
+    //printf ("Process %d opening FIFO O_WRONLY\n", getpid());
     pipe_fd = open (FIFO_NAME, open_mode);
     //printf ("Process %d result %d\n, getpid(), pipe_fd");
     if (pipe_fd!=-1)

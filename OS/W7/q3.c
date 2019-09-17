@@ -73,8 +73,9 @@ int main ()
             //printf ("%d", ch);
             if (ch=='0')
                 break;
-            shared_stuff->written_by_you=1;
+            
             shared_stuff->c = ch;
+            shared_stuff->written_by_you=1;
             while (shared_stuff->written_by_you==1);
             printf ("In uppercase: %c\n", shared_stuff->c);
             
@@ -82,22 +83,6 @@ int main ()
            
         }
     }
-    /*
-    while (running)
-    {
-        while (shared_stuff->written_by_you == 1)
-        {
-            sleep(1);
-            printf ("Waiting for client\n");
-        }
-        printf ("Enter some text\t");
-        fgets (buffer, BUFSIZ, stdin);
-        strncpy (shared_stuff->some_text, buffer, TEXT_SZ);
-        shared_stuff->written_by_you=1;
-        if (strncmp (shared_stuff->some_text, "end", 3)==0)
-            running=0;
-    }
-    */
     if (shmdt (shared_memory)==-1)
     {
         perror ("SHMDT");
