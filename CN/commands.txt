@@ -1,0 +1,95 @@
+PC1
+
+ip 172.16.50.1/24 172.16.50.254
+PC2
+ip 172.16.50.2/24 172.16.50.254
+
+PC3
+ip 10.10.10.1/24 10.10.10.254
+PC4
+ip 10.10.10.2/24 10.10.10.254
+
+PC5
+ip 30.30.30.1/24 30.30.30.254
+PC6
+ip 30.30.30.2/24 30.30.30.254
+
+R1
+config t
+inter f0/0
+ip address 172.16.50.254 255.255.255.0
+no shutdown
+exit
+inter f 0/1
+ip address 20.0.0.1 255.255.255.0
+no shutdown
+exit
+
+R2
+config t
+inter f0/0
+ip address 10.10.10.254 255.255.255.0
+no shutdown
+exit
+inter f 0/1
+ip address 20.0.0.2 255.255.255.0
+no shutdown
+exit
+
+R3
+config t
+inter f 0/0
+ip address 30.30.30.254 255.255.255.0
+no shutdown
+exit
+inter f 0/1
+ip address 20.0.0.3 255.255.255.0
+no shutdown
+exit
+
+R4
+enable
+config t
+hostname R4
+int f 0/0
+ip address 20.0.0.4 255.255.255.0
+no shut 
+do wr
+end
+
+IP Routing
+R1
+ip route 10.0.0.0 255.255.255.0 20.0.0.2
+ip route 30.0.0.0 255.255.255.0 20.0.0.3
+
+R2
+ip route 172.16.50.0 255.255.255.0 20.0.0.1
+ip route 30.0.0.0 255.255.255.0 20.0.0.3
+
+R3
+ip route 172.16.50.0 255.255.255.0 20.0.0.1
+ip route 10.0.0.0 255.255.255.0 20.0.0.2
+
+R4
+ip route 172.16.50.0 255.255.255.0 20.0.0.1
+ip route 10.0.0.0 255.255.255.0 20.0.0.2
+ip route 30.0.0.0 255.255.255.0 20.0.0.3
+
+//DNS setup
+config t
+ip dns server
+ip host pc1.com 172.16.50.1
+ip host pc2.com 172.16.50.2
+ip host pc3.com 10.10.10.1
+ip host pc4.com 10.10.10.2
+ip host pc5.com 30.30.30.1
+ip host pc6.com 30.30.30.2
+
+CONFIGURE EACH ROUTER TO USE R4 AS DNS SERVER
+
+ip domain lookup
+ip name-server 20.0.0.4
+ip route 0.0.0.0 0.0.0.0 20.0.0.4
+
+SET UP DNS SERVER FOR EACH VPCS
+ip dns 20.0.0.4
