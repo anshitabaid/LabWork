@@ -19,8 +19,11 @@ int diameter (Node root)
 
 int main ()
 {
-	Node n = newNode (1);
+	int r;
+	printf ("Enter root:\t");
+	scanf ("%d", &r);
+	Node n = newNode (r);
 	constructTree (n);
 	inorder (n);
-	printf ("Diameter %d\n", diameter (n));
+	printf ("\nDiameter %d\n", diameter (n));
 }

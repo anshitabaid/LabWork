@@ -20,22 +20,24 @@ void merge (int arr[], int l, int m, int r)
 	while (i<n1 && j<n2)
 	{
 		opcount++;
-		if (a[i]<b[j])
+		if (a[i]<=b[j])
 		{
 			arr[k]=a[i];
 			i++;
 		}
-		else if (b[j]<a[i])
+		else //(b[j]<a[i])
 		{
 			arr[k]=b[j];
 			j++;
 		}
+		/*
 		else //equal
 		{
 			arr[k]=a[i];
 			i++; 
 			j++;
 		}
+		*/
 		k++;
 	}
 	while (i<n1)
