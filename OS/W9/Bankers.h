@@ -20,6 +20,7 @@ BankersDs init (int n, int m)
 		ds->allocation[i]=(int *)calloc (m, sizeof (int));
 		ds->need[i]=(int *)calloc (m, sizeof (int));
 	}
+	printf ("%d\t%d", sizeof ())
 	return ds;
 
 }

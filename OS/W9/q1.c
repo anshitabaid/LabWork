@@ -65,7 +65,6 @@ int main ()
 	BankersDs ds= init (n, m);
 	for (i=0; i<n; i++)
 	{
-		printf ("%d\n", i);
 		for (j=0; j<m; j++)
 			scanf("%d", &(ds->allocation[i][j]));
 		for (j=0; j<m; j++)
