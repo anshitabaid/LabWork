@@ -54,7 +54,7 @@ void initMatrix (int mat [][arrsize], int v)
 	{
 		for (j=0; j<v; j++)
 			mat [i][j]=0;
-		mat[i][i]=1; //self connection
+		//mat[i][i]=1; //self connection
 	}
 
 }
