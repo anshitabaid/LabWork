@@ -28,6 +28,7 @@ void firstfit()
 		if (!flag)
 			printf ("Process %d is not allocated memory\n", i);
 	}
+	
 
 }
 
