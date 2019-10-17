@@ -1,0 +1,6 @@
+Source data rate
+grep -E '\+ .* 0 1' simulate4.tr| wc -l
+Throughput
+grep -E '^r .* 1 2' simulate4.tr| wc -l
+Packet loss
+grep -E '^d' simulate4.tr | wc -l
