@@ -1,0 +1,32 @@
+SET VLAN in switch
+For trunk line, set protocol as dto1q
+Router
+
+config t
+interface fa 0/0
+ip address 192.168.10.1 255.255.255.240
+do wr
+no shut
+exit
+interface fa 0/0.2
+encapsulation dot1q 2
+ip address 192.168.1.65 255.255.255.192
+do wr
+no shut
+exit
+interface fa 0/0.10
+encapsulation dot1q 10
+ip address 192.168.1.129 255.255.255.224
+do wr
+no shut
+
+PC1
+ip 192.168.1.66 255.255.255.240 192.168.1.65 
+PC2
+ip 192.168.1.67 255.255.255.240 192.168.1.65 
+PC3
+ip 192.168.1.130 255.255.255.224 192.168.1.129 
+
+
+-----
+Configure R as 
