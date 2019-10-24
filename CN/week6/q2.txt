@@ -1,0 +1,168 @@
+pc1
+PC-1> ip 10.0.0.1 255.0.0.0 10.0.0.10
+Checking for duplicate address...
+PC1 : 10.0.0.1 255.0.0.0 gateway 10.0.0.10
+
+PC-1> ping 30.0.0.1
+30.0.0.1 icmp_seq=1 timeout
+84 bytes from 30.0.0.1 icmp_seq=2 ttl=62 time=59.374 ms
+84 bytes from 30.0.0.1 icmp_seq=3 ttl=62 time=24.801 ms
+84 bytes from 30.0.0.1 icmp_seq=4 ttl=62 time=54.936 ms
+84 bytes from 30.0.0.1 icmp_seq=5 ttl=62 time=54.432 ms
+
+PC-1> ping 30.0.0.1
+84 bytes from 30.0.0.1 icmp_seq=1 ttl=62 time=58.918 ms
+84 bytes from 30.0.0.1 icmp_seq=2 ttl=62 time=25.255 ms
+84 bytes from 30.0.0.1 icmp_seq=3 ttl=62 time=55.991 ms
+84 bytes from 30.0.0.1 icmp_seq=4 ttl=62 time=54.390 ms
+84 bytes from 30.0.0.1 icmp_seq=5 ttl=62 time=55.370 ms
+
+PC-1> ping 30.0.0.2
+30.0.0.2 icmp_seq=1 timeout
+84 bytes from 30.0.0.2 icmp_seq=2 ttl=62 time=59.361 ms
+84 bytes from 30.0.0.2 icmp_seq=3 ttl=62 time=55.121 ms
+84 bytes from 30.0.0.2 icmp_seq=4 ttl=62 time=55.440 ms
+84 bytes from 30.0.0.2 icmp_seq=5 ttl=62 time=55.434 ms
+
+PC-1> ping 30.0.0.2
+84 bytes from 30.0.0.2 icmp_seq=1 ttl=62 time=86.696 ms
+84 bytes from 30.0.0.2 icmp_seq=2 ttl=62 time=54.867 ms
+84 bytes from 30.0.0.2 icmp_seq=3 ttl=62 time=24.555 ms
+84 bytes from 30.0.0.2 icmp_seq=4 ttl=62 time=25.164 ms
+84 bytes from 30.0.0.2 icmp_seq=5 ttl=62 time=28.738 ms
+
+_____________________________________________________________
+
+pc2
+PC-2> ip 10.0.0.2 255.0.0.0 10.0.0.10
+Checking for duplicate address...
+PC1 : 10.0.0.2 255.0.0.0 gateway 10.0.0.10
+
+PC-2> ping 30.0.0.1
+84 bytes from 30.0.0.1 icmp_seq=1 ttl=62 time=89.996 ms
+84 bytes from 30.0.0.1 icmp_seq=2 ttl=62 time=54.787 ms
+84 bytes from 30.0.0.1 icmp_seq=3 ttl=62 time=65.366 ms
+84 bytes from 30.0.0.1 icmp_seq=4 ttl=62 time=54.583 ms
+84 bytes from 30.0.0.1 icmp_seq=5 ttl=62 time=54.538 ms
+
+PC-2> ping 30.0.0.2
+84 bytes from 30.0.0.2 icmp_seq=1 ttl=62 time=36.558 ms
+84 bytes from 30.0.0.2 icmp_seq=2 ttl=62 time=25.281 ms
+84 bytes from 30.0.0.2 icmp_seq=3 ttl=62 time=25.286 ms
+84 bytes from 30.0.0.2 icmp_seq=4 ttl=62 time=24.022 ms
+84 bytes from 30.0.0.2 icmp_seq=5 ttl=62 time=24.957 ms
+
+
+________________________________________________________________
+
+pc3
+PC-3> ip 30.0.0.1 255.0.0.0 30.0.0.10
+Checking for duplicate address...
+PC1 : 30.0.0.1 255.0.0.0 gateway 30.0.0.10
+
+PC-3> ping 10.0.0.1
+10.0.0.1 icmp_seq=1 timeout
+10.0.0.1 icmp_seq=2 timeout
+84 bytes from 10.0.0.1 icmp_seq=3 ttl=62 time=90.108 ms
+84 bytes from 10.0.0.1 icmp_seq=4 ttl=62 time=53.986 ms
+84 bytes from 10.0.0.1 icmp_seq=5 ttl=62 time=54.658 ms
+
+PC-3> ping 10.0.0.1
+84 bytes from 10.0.0.1 icmp_seq=1 ttl=62 time=58.692 ms
+84 bytes from 10.0.0.1 icmp_seq=2 ttl=62 time=55.350 ms
+84 bytes from 10.0.0.1 icmp_seq=3 ttl=62 time=55.345 ms
+84 bytes from 10.0.0.1 icmp_seq=4 ttl=62 time=55.302 ms
+84 bytes from 10.0.0.1 icmp_seq=5 ttl=62 time=55.098 ms
+
+PC-3> ping 10.0.0.2
+84 bytes from 10.0.0.2 icmp_seq=1 ttl=62 time=57.589 ms
+84 bytes from 10.0.0.2 icmp_seq=2 ttl=62 time=55.150 ms
+84 bytes from 10.0.0.2 icmp_seq=3 ttl=62 time=55.072 ms
+84 bytes from 10.0.0.2 icmp_seq=4 ttl=62 time=54.760 ms
+84 bytes from 10.0.0.2 icmp_seq=5 ttl=62 time=54.297 ms
+
+
+____________________________________________________________________
+
+pc4
+PC-4> ip 30.0.0.2 255.0.0.0 30.0.0.10
+Checking for duplicate address...
+PC1 : 30.0.0.2 255.0.0.0 gateway 30.0.0.10
+
+PC-4> ping 10.0.0.1
+84 bytes from 10.0.0.1 icmp_seq=1 ttl=62 time=89.789 ms
+84 bytes from 10.0.0.1 icmp_seq=2 ttl=62 time=54.528 ms
+84 bytes from 10.0.0.1 icmp_seq=3 ttl=62 time=55.140 ms
+84 bytes from 10.0.0.1 icmp_seq=4 ttl=62 time=24.870 ms
+84 bytes from 10.0.0.1 icmp_seq=5 ttl=62 time=55.187 ms
+
+PC-4> ping 10.0.0.2
+84 bytes from 10.0.0.2 icmp_seq=1 ttl=62 time=52.864 ms
+84 bytes from 10.0.0.2 icmp_seq=2 ttl=62 time=54.800 ms
+84 bytes from 10.0.0.2 icmp_seq=3 ttl=62 time=55.065 ms
+84 bytes from 10.0.0.2 icmp_seq=4 ttl=62 time=55.358 ms
+84 bytes from 10.0.0.2 icmp_seq=5 ttl=62 time=55.320 ms
+
+
+_______________________________________________________________________
+
+r1
+R1#config terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface s1/0
+R1(config-if)#ip address 20.0.0.1 255.0.0.0
+R1(config-if)#clock rate 64000
+R1(config-if)#encapsulation ppp
+R1(config-if)#no shutdown
+R1(config-if)#
+*Sep  5 20:39:06.311: %LINK-3-UPDOWN: Interface Serial1/0, changed state to up
+R1(config-if)#
+*Sep  5 20:39:06.311: %ENTITY_ALARM-6-INFO: CLEAR INFO Se1/0 Physical Port Administrative State Down 
+R1(config-if)#exit
+R1(config)#
+*Sep  5 20:40:34.523: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial1/0, changed state to up
+R1(config)#interface f0/0
+R1(config-if)#ip address 10.0.0.10 255.0.0.0
+R1(config-if)#no shutdown
+R1(config-if)#
+*Sep  5 20:42:44.043: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+R1(config-if)#
+*Sep  5 20:42:44.043: %ENTITY_ALARM-6-INFO: CLEAR INFO Fa0/0 Physical Port Administrative State Down 
+*Sep  5 20:42:45.043: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R1(config-if)#exit
+R1(config)#exit
+R1#
+*Sep  5 20:44:28.163: %SYS-5-CONFIG_I: Configured from console by console
+R1#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ip route 30.0.0.0 255.0.0.0 20.0.0.2
+R1(config)#
+
+________________________________________________________________________
+
+r2
+R2#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#interface s1/0
+R2(config-if)#ip address 20.0.0.2 255.0.0.0
+R2(config-if)#clock rate 64000
+R2(config-if)#encapsulation ppp
+R2(config-if)#no shutdown
+R2(config-if)#
+*Sep  5 20:40:29.219: %LINK-3-UPDOWN: Interface Serial1/0, changed state to up
+R2(config-if)#
+*Sep  5 20:40:29.219: %ENTITY_ALARM-6-INFO: CLEAR INFO Se1/0 Physical Port Administrative State Down 
+R2(config-if)#
+*Sep  5 20:40:30.455: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial1/0, changed state to up
+R2(config-if)#exit 
+R2(config)#interface f0/0
+R2(config-if)#ip address 30.0.0.10 255.0.0.0
+R2(config-if)#no shutdown
+R2(config-if)#exi 
+*Sep  5 20:43:53.431: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+R2(config-if)#   
+*Sep  5 20:43:53.431: %ENTITY_ALARM-6-INFO: CLEAR INFO Fa0/0 Physical Port Administrative State Down 
+*Sep  5 20:43:54.431: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R2(config-if)#exit
+R2(config)#ip route 10.0.0.0 255.0.0.0 20.0.0.1
+R2(config)#

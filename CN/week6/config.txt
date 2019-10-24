@@ -1,0 +1,126 @@
+R1#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface f0/0
+R1(config-if)#ip address 10.0.0.1 255.0.0.0
+R1(config-if)#no shutdown
+R1(config-if)#
+*Sep  5 19:54:05.207: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+R1(config-if)#
+*Sep  5 19:54:05.207: %ENTITY_ALARM-6-INFO: CLEAR INFO Fa0/0 Physical Port Administrative State Down 
+*Sep  5 19:54:06.207: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R1(config-if)#
+R1(config-if)#interface s1/0
+R1(config-if)#ip address 20.0.0.1 255.0.0.0
+R1(config-if)#clock rate 64000
+R1(config-if)#encapsulation ppp
+R1(config-if)#no shutdown
+R1(config-if)#
+*Sep  5 20:01:57.795: %LINK-3-UPDOWN: Interface Serial1/0, changed state to up
+R1(config-if)#
+*Sep  5 20:01:57.795: %ENTITY_ALARM-6-INFO: CLEAR INFO Se1/0 Physical Port Administrative State Down 
+R1(config-if)#
+*Sep  5 20:01:58.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial1/0, changed state to up
+R1(config-if)#
+R1(config-if)#exit
+R1(config)#ip route 30.0.0.0 255.0.0.0 20.0.0.2
+
+
+R2#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#interface f0/0
+R2(config-if)#ip address 30.0.0.1 255.0.0.0
+R2(config-if)#no shutdown
+R2(config-if)#
+*Sep  5 19:54:18.939: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+R2(config-if)#
+*Sep  5 19:54:18.939: %ENTITY_ALARM-6-INFO: CLEAR INFO Fa0/0 Physical Port Administrative State Down 
+*Sep  5 19:54:19.939: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R2(config-if)#
+R2(config)#interface f0/0
+R2(config-if)#ip address 30.0.0.1 255.0.0.0
+R2(config-if)#no shutdown
+R2(config-if)#
+*Sep  5 19:54:18.939: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+R2(config-if)#
+*Sep  5 19:54:18.939: %ENTITY_ALARM-6-INFO: CLEAR INFO Fa0/0 Physical Port Administrative State Down 
+*Sep  5 19:54:19.939: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R2(config-if)#interface s1/0
+R2(config-if)#ip address 20.0.0.2 255.0.0.0
+R2(config-if)#clock rate 64000 
+R2(config-if)#encapsulation ppp
+R2(config-if)#no shutdown
+R2(config-if)#
+*Sep  5 19:58:03.191: %LINK-3-UPDOWN: Interface Serial1/0, changed state to up
+R2(config-if)#
+*Sep  5 19:58:03.191: %ENTITY_ALARM-6-INFO: CLEAR INFO Se1/0 Physical Port Administrative State Down 
+R2(config-if)#
+R2(config-if)#exit           
+R2(config)#ip route 10.0.0.0 255.0.0.0 20.0.0.1
+R2(config)#
+
+
+PC-2> ip 30.0.0.10 255.0.0.0 30.0.0.1  
+Checking for duplicate address...
+PC1 : 30.0.0.10 255.0.0.0 gateway 30.0.0.1
+
+PC-2> ping 10.0.0.10
+*30.0.0.1 icmp_seq=1 ttl=255 time=39.616 ms (ICMP type:3, code:1, Destination host unreachable)
+*30.0.0.1 icmp_seq=2 ttl=255 time=6.048 ms (ICMP type:3, code:1, Destination host unreachable)
+*30.0.0.1 icmp_seq=3 ttl=255 time=7.641 ms (ICMP type:3, code:1, Destination host unreachable)
+*30.0.0.1 icmp_seq=4 ttl=255 time=5.887 ms (ICMP type:3, code:1, Destination host unreachable)
+*30.0.0.1 icmp_seq=5 ttl=255 time=6.188 ms (ICMP type:3, code:1, Destination host unreachable)
+
+PC-2> ping 20.0.0.2
+84 bytes from 20.0.0.2 icmp_seq=1 ttl=255 time=2.896 ms
+84 bytes from 20.0.0.2 icmp_seq=2 ttl=255 time=6.356 ms
+84 bytes from 20.0.0.2 icmp_seq=3 ttl=255 time=6.529 ms
+84 bytes from 20.0.0.2 icmp_seq=4 ttl=255 time=5.537 ms
+84 bytes from 20.0.0.2 icmp_seq=5 ttl=255 time=5.765 ms
+
+PC-2> ping 20.0.0.1
+84 bytes from 20.0.0.1 icmp_seq=1 ttl=254 time=19.967 ms
+84 bytes from 20.0.0.1 icmp_seq=2 ttl=254 time=16.423 ms
+84 bytes from 20.0.0.1 icmp_seq=3 ttl=254 time=15.727 ms
+84 bytes from 20.0.0.1 icmp_seq=4 ttl=254 time=15.721 ms
+84 bytes from 20.0.0.1 icmp_seq=5 ttl=254 time=15.951 ms
+
+PC-2> ping 10.0.0.10
+84 bytes from 10.0.0.10 icmp_seq=1 ttl=62 time=54.084 ms
+84 bytes from 10.0.0.10 icmp_seq=2 ttl=62 time=56.142 ms
+84 bytes from 10.0.0.10 icmp_seq=3 ttl=62 time=56.671 ms
+84 bytes from 10.0.0.10 icmp_seq=4 ttl=62 time=26.162 ms
+84 bytes from 10.0.0.10 icmp_seq=5 ttl=62 time=56.263 ms
+
+
+
+PC-1> ip 10.0.0.10 255.0.0.0 10.0.0.1
+Checking for duplicate address...
+PC1 : 10.0.0.10 255.0.0.0 gateway 10.0.0.1
+
+PC-1> ping 30.0.0.10
+*10.0.0.1 icmp_seq=1 ttl=255 time=39.435 ms (ICMP type:3, code:1, Destination host unreachable)
+*10.0.0.1 icmp_seq=2 ttl=255 time=6.280 ms (ICMP type:3, code:1, Destination host unreachable)
+*10.0.0.1 icmp_seq=3 ttl=255 time=6.005 ms (ICMP type:3, code:1, Destination host unreachable)
+*10.0.0.1 icmp_seq=4 ttl=255 time=6.503 ms (ICMP type:3, code:1, Destination host unreachable)
+*10.0.0.1 icmp_seq=5 ttl=255 time=6.191 ms (ICMP type:3, code:1, Destination host unreachable)
+
+PC-1> ping 20.0.0.1 
+84 bytes from 20.0.0.1 icmp_seq=1 ttl=255 time=40.061 ms
+84 bytes from 20.0.0.1 icmp_seq=2 ttl=255 time=5.951 ms
+84 bytes from 20.0.0.1 icmp_seq=3 ttl=255 time=5.918 ms
+84 bytes from 20.0.0.1 icmp_seq=4 ttl=255 time=5.549 ms
+84 bytes from 20.0.0.1 icmp_seq=5 ttl=255 time=5.489 ms
+
+PC-1> ping 20.0.0.2
+84 bytes from 20.0.0.2 icmp_seq=1 ttl=254 time=18.401 ms
+84 bytes from 20.0.0.2 icmp_seq=2 ttl=254 time=15.809 ms
+84 bytes from 20.0.0.2 icmp_seq=3 ttl=254 time=16.592 ms
+84 bytes from 20.0.0.2 icmp_seq=4 ttl=254 time=46.034 ms
+84 bytes from 20.0.0.2 icmp_seq=5 ttl=254 time=15.846 ms
+
+PC-1> ping 30.0.0.10
+84 bytes from 30.0.0.10 icmp_seq=1 ttl=62 time=52.577 ms
+84 bytes from 30.0.0.10 icmp_seq=2 ttl=62 time=56.283 ms
+84 bytes from 30.0.0.10 icmp_seq=3 ttl=62 time=57.286 ms
+84 bytes from 30.0.0.10 icmp_seq=4 ttl=62 time=27.036 ms
+84 bytes from 30.0.0.10 icmp_seq=5 ttl=62 time=26.446 ms
