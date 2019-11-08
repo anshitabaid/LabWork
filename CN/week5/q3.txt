@@ -1,0 +1,43 @@
+q1.
+1 to 3
+ping 10.0.1.120
+84 bytes from 10.0.1.120 icmp_seq=1 ttl=64 time=0.181 ms
+84 bytes from 10.0.1.120 icmp_seq=2 ttl=64 time=0.498 ms
+84 bytes from 10.0.1.120 icmp_seq=3 ttl=64 time=0.250 ms
+84 bytes from 10.0.1.120 icmp_seq=4 ttl=64 time=0.225 ms
+84 bytes from 10.0.1.120 icmp_seq=5 ttl=64 time=0.166 ms
+
+q2.
+1 to 2
+ping 10.0.1.101
+84 bytes from 10.0.1.101 icmp_seq=1 ttl=64 time=0.132 ms
+84 bytes from 10.0.1.101 icmp_seq=2 ttl=64 time=0.175 ms
+84 bytes from 10.0.1.101 icmp_seq=3 ttl=64 time=0.177 ms
+84 bytes from 10.0.1.101 icmp_seq=4 ttl=64 time=0.218 ms
+84 bytes from 10.0.1.101 icmp_seq=5 ttl=64 time=0.190 ms
+
+
+q3.
+1 to 4
+ping 10.0.1.121
+10.0.1.121 icmp_seq=1 timeout
+10.0.1.121 icmp_seq=2 timeout
+10.0.1.121 icmp_seq=3 timeout
+10.0.1.121 icmp_seq=4 timeout
+10.0.1.121 icmp_seq=5 timeout
+
+q4.
+4 to 1
+ping 10.0.1.100
+host (255.255.255.240) not reachable
+
+q5.
+2 to 4
+ping 10.0.1.100
+host (255.255.255.240) not reachable
+
+
+q6.
+2 to 3
+ping 10.0.1.120
+host (255.255.255.240) not reachable
